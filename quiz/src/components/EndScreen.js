@@ -20,6 +20,11 @@ const EndScreen = () => {
       <h1>
         {score} / {Questions.length}
       </h1>
+      {score === Questions.length ? (
+        <h1>Congrats! You Won.</h1>
+      ) : (
+        <h1> Oops! Try Again. </h1>
+      )}
       <button onClick={restartQuiz}>Restart Quiz</button>
     </div>
   );
