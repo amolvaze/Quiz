@@ -9,9 +9,7 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
 
-  const { score, setScore, gameState, setGameState } = useContext(
-    GameStateContext
-  );
+  const { score, setScore, setGameState } = useContext(GameStateContext);
 
   const chooseOption = (option) => {
     setOptionChosen(option);
