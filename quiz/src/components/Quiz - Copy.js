@@ -22,7 +22,7 @@ const Quiz = () => {
     return shuffleArray;
   };
 
-  const shuffleArray = randomizeQues(Questions);
+  let shuffleArray = randomizeQues(Questions);
   // console.log("shuffleArray", Questions);
 
   // useEffect(() => {
@@ -44,7 +44,7 @@ const Quiz = () => {
     //   alert("Please select one of the options! ");
     //   return;
     // }
-    if (shuffleArray[currentQuestion].asnwer === optionChosen) {
+    if (Questions[currentQuestion].asnwer === optionChosen) {
       setScore(score + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
@@ -55,7 +55,7 @@ const Quiz = () => {
     //   alert("Please select one of the options! ");
     //   return;
     // }
-    if (shuffleArray[currentQuestion].asnwer === optionChosen) {
+    if (Questions[currentQuestion].asnwer === optionChosen) {
       setScore(score + 1);
     }
     setGameState("finished");
@@ -63,38 +63,38 @@ const Quiz = () => {
 
   return (
     <div className="Quiz">
-      <h1>{shuffleArray[currentQuestion].prompt}</h1>
+      <h1>{Questions[currentQuestion].prompt}</h1>
       <div className="questions">
         <button
           onClick={() => {
             chooseOption("optionA");
           }}
         >
-          {shuffleArray[currentQuestion].optionA}
+          {Questions[currentQuestion].optionA}
         </button>
         <button
           onClick={() => {
             chooseOption("optionB");
           }}
         >
-          {shuffleArray[currentQuestion].optionB}
+          {Questions[currentQuestion].optionB}
         </button>
         <button
           onClick={() => {
             chooseOption("optionC");
           }}
         >
-          {shuffleArray[currentQuestion].optionC}
+          {Questions[currentQuestion].optionC}
         </button>
         <button
           onClick={() => {
             chooseOption("optionD");
           }}
         >
-          {shuffleArray[currentQuestion].optionD}
+          {Questions[currentQuestion].optionD}
         </button>
       </div>
-      {currentQuestion === shuffleArray.length - 1 ? (
+      {currentQuestion === Questions.length - 1 ? (
         <button onClick={finishQuiz} id="nextQuestion">
           Finish Quiz
         </button>
@@ -103,7 +103,7 @@ const Quiz = () => {
           Next Question
         </button>
       )}
-      {currentQuestion !== 0 && currentQuestion !== shuffleArray.length ? (
+      {currentQuestion !== 0 && currentQuestion !== Questions.length ? (
         <button onClick={prevQuestion} id="prevQuestion">
           Previous Question
         </button>
