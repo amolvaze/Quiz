@@ -19,8 +19,8 @@ const Quiz = () => {
   //     shuffleArray.push(newQuestions[randomIndex]);
   //     newQuestions.splice(randomIndex, 1);
   //   }
-  //   console.log("Shuffle array", shuffleArray);
-  //   // return shuffleArray;
+  //   //console.log("Shuffle array", shuffleArray);
+  //   return shuffleArray;
   // };
 
   // useEffect(() => {
@@ -32,7 +32,7 @@ const Quiz = () => {
   };
 
   const prevQuestion = () => {
-    if (currentQuestion !== 1) {
+    if (currentQuestion !== 0) {
       setCurrentQuestion(currentQuestion - 1);
     }
   };
