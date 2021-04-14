@@ -15,6 +15,12 @@ const Quiz = () => {
     setOptionChosen(option);
   };
 
+  const prevQuestion = () => {
+    if (currentQuestion !== 1) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
+
   const nextQuestion = () => {
     if (Questions[currentQuestion].asnwer === optionChosen) {
       setScore(score + 1);
@@ -62,7 +68,6 @@ const Quiz = () => {
           {Questions[currentQuestion].optionD}
         </button>
       </div>
-
       {currentQuestion === Questions.length - 1 ? (
         <button onClick={finishQuiz} id="nextQuestion">
           Finish Quiz
@@ -72,6 +77,11 @@ const Quiz = () => {
           Next Question
         </button>
       )}
+      {currentQuestion !== 0 && currentQuestion !== Questions.length ? (
+        <button onClick={prevQuestion} id="prevQuestion">
+          Previous Question
+        </button>
+      ) : null}
     </div>
   );
 };
