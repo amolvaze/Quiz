@@ -1,6 +1,6 @@
 import "../App.css";
 import { Questions } from "../helpers/Questions";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useContext } from "react";
 import { GameStateContext } from "../helpers/Contexts";
@@ -10,6 +10,22 @@ const Quiz = () => {
   const [optionChosen, setOptionChosen] = useState("");
 
   const { score, setScore, setGameState } = useContext(GameStateContext);
+
+  // const randomizeQues = (Questions) => {
+  //   let newQuestions = [...Questions];
+  //   let shuffleArray = [];
+  //   while (newQuestions.length > 0) {
+  //     var randomIndex = Math.floor(Math.random() * newQuestions.length);
+  //     shuffleArray.push(newQuestions[randomIndex]);
+  //     newQuestions.splice(randomIndex, 1);
+  //   }
+  //   console.log("Shuffle array", shuffleArray);
+  //   // return shuffleArray;
+  // };
+
+  // useEffect(() => {
+  //   randomizeQues(Questions);
+  // }, []);
 
   const chooseOption = (option) => {
     setOptionChosen(option);
@@ -22,6 +38,10 @@ const Quiz = () => {
   };
 
   const nextQuestion = () => {
+    // if (optionChosen.trim() === "") {
+    //   alert("Please select one of the options! ");
+    //   return;
+    // }
     if (Questions[currentQuestion].asnwer === optionChosen) {
       setScore(score + 1);
     }
@@ -29,6 +49,10 @@ const Quiz = () => {
   };
 
   const finishQuiz = () => {
+    // if (optionChosen.trim() === "") {
+    //   alert("Please select one of the options! ");
+    //   return;
+    // }
     if (Questions[currentQuestion].asnwer === optionChosen) {
       setScore(score + 1);
     }
