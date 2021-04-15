@@ -8,11 +8,11 @@ export const Questions = [
     answer: "optionA",
   },
   {
-    prompt: "Which of this is not a programming language?",
-    optionA: "Python",
-    optionB: "JavaScript",
-    optionC: "MC-03",
-    optionD: "Java",
+    prompt: "Which of this is my favorite city?",
+    optionA: "Dallas",
+    optionB: "Boston",
+    optionC: "Chicago",
+    optionD: "New York",
     answer: "optionC",
   },
   {

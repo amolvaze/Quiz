@@ -23,10 +23,8 @@ const Quiz = () => {
   };
 
   const shuffleArray = randomizeQues(Questions);
-  // console.log(shuffleArray);
 
   const chooseOption = (option) => {
-    // console.log(option);
     setOptionChosen(option);
   };
 
@@ -37,10 +35,6 @@ const Quiz = () => {
   };
 
   const nextQuestion = () => {
-    // if (optionChosen.trim() === "") {
-    //   alert("Please select one of the options! ");
-    //   return;
-    // }
     if (shuffleArray[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
@@ -48,10 +42,6 @@ const Quiz = () => {
   };
 
   const finishQuiz = () => {
-    // if (optionChosen.trim() === "") {
-    //   alert("Please select one of the options! ");
-    //   return;
-    // }
     if (shuffleArray[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
