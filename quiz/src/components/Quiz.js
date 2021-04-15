@@ -44,7 +44,6 @@ const Quiz = () => {
     if (shuffleArray[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
-
     setCurrentQuestion(currentQuestion + 1);
   };
 
