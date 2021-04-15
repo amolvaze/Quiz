@@ -22,14 +22,14 @@ const Quiz = () => {
   };
 
   const nextQuestion = () => {
-    if (Questions[currentQuestion].asnwer === optionChosen) {
+    if (Questions[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
     setCurrentQuestion(currentQuestion + 1);
   };
 
   const finishQuiz = () => {
-    if (Questions[currentQuestion].asnwer === optionChosen) {
+    if (Questions[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
     setGameState("finished");
