@@ -1,12 +1,12 @@
 import "../App.css";
 import { Questions } from "../helpers/Questions";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { useContext } from "react";
 import { GameStateContext } from "../helpers/Contexts";
 
 const Quiz = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
   const [optionChosen, setOptionChosen] = useState("");
 
   const { score, setScore, setGameState } = useContext(GameStateContext);
@@ -23,18 +23,15 @@ const Quiz = () => {
   };
 
   const shuffleArray = randomizeQues(Questions);
-  // console.log("shuffleArray", Questions);
-
-  // useEffect(() => {
-  //   randomizeQues(Questions);
-  // }, []);
+  // console.log(shuffleArray);
 
   const chooseOption = (option) => {
+    // console.log(option);
     setOptionChosen(option);
   };
 
   const prevQuestion = () => {
-    if (currentQuestion !== 0) {
+    if (currentQuestion !== 1) {
       setCurrentQuestion(currentQuestion - 1);
     }
   };
@@ -44,9 +41,10 @@ const Quiz = () => {
     //   alert("Please select one of the options! ");
     //   return;
     // }
-    if (shuffleArray[currentQuestion].asnwer === optionChosen) {
+    if (shuffleArray[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
+
     setCurrentQuestion(currentQuestion + 1);
   };
 
@@ -55,7 +53,7 @@ const Quiz = () => {
     //   alert("Please select one of the options! ");
     //   return;
     // }
-    if (shuffleArray[currentQuestion].asnwer === optionChosen) {
+    if (shuffleArray[currentQuestion].answer === optionChosen) {
       setScore(score + 1);
     }
     setGameState("finished");
@@ -103,7 +101,7 @@ const Quiz = () => {
           Next Question
         </button>
       )}
-      {currentQuestion !== 0 && currentQuestion !== shuffleArray.length ? (
+      {currentQuestion !== 1 && currentQuestion !== shuffleArray.length ? (
         <button onClick={prevQuestion} id="prevQuestion">
           Previous Question
         </button>
