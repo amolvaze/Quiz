@@ -7,7 +7,6 @@ import { GameStateContext } from "./helpers/Contexts";
 // ['menu', 'playing', 'finished']
 function App() {
   const [gameState, setGameState] = useState("menu");
-  const [userName, setUserName] = useState("");
   const [score, setScore] = useState(0);
 
   return (
@@ -17,8 +16,6 @@ function App() {
         value={{
           gameState,
           setGameState,
-          userName,
-          setUserName,
           score,
           setScore,
         }}
