@@ -26,6 +26,14 @@ export const Questions = [
     optionD: "Java",
     answer: "optionD",
   },
+  {
+    prompt: "Which game do you like the most?",
+    optionA: "Football",
+    optionB: "Chess",
+    optionC: "Carrom",
+    optionD: "Cricket",
+    answer: "optionD",
+  },
 ];
 
 // shuffleArray = Shuffle(Questions);
