@@ -1,3 +1,6 @@
+// import { Shuffle } from "../components/Shuffle";
+
+// let shuffleArray = [];
 export const Questions = [
   {
     prompt: "What is my name?",
@@ -24,3 +27,6 @@ export const Questions = [
     answer: "optionD",
   },
 ];
+
+// shuffleArray = Shuffle(Questions);
+// console.log("Shuffled Array", shuffleArray);
