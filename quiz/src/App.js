@@ -5,7 +5,7 @@ import EndScreen from "./components/EndScreen";
 import { useState } from "react";
 import { GameStateContext } from "./helpers/Contexts";
 // ['menu', 'playing', 'finished']
-function App() {
+const App = () => {
   const [gameState, setGameState] = useState("menu");
   const [score, setScore] = useState(0);
 
@@ -26,6 +26,6 @@ function App() {
       </GameStateContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
