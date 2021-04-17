@@ -13,7 +13,7 @@ const App = () => {
   const [randomArray, setRandomArray] = useState(Shuffle(Questions));
   return (
     <div className="App">
-      <h1>Quiz App</h1>
+      <h1>Online Quiz App</h1>
       <GameStateContext.Provider
         value={{
           gameState,
