@@ -1,6 +1,4 @@
 import "../App.css";
-import { Questions } from "../helpers/Questions";
-
 import { useState } from "react";
 
 import { useContext } from "react";
@@ -9,8 +7,9 @@ import { GameStateContext } from "../helpers/Contexts";
 const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
+  const [answers, setAnswers] = useState(new Map());
 
-  const { score, setScore, setGameState } = useContext(GameStateContext);
+  const { setScore, setGameState, randomArray } = useContext(GameStateContext);
 
   const chooseOption = (option) => {
     setOptionChosen(option);
@@ -23,62 +22,77 @@ const Quiz = () => {
   };
 
   const nextQuestion = () => {
-    if (Questions[currentQuestion].answer === optionChosen) {
-      setScore(score + 1);
+    if (randomArray[currentQuestion].answer === optionChosen) {
+      answers[currentQuestion] = 1;
+    } else {
+      answers[currentQuestion] = 0;
     }
+    setAnswers(answers);
     setCurrentQuestion(currentQuestion + 1);
+    setOptionChosen("");
   };
 
   const finishQuiz = () => {
-    if (Questions[currentQuestion].answer === optionChosen) {
-      setScore(score + 1);
+    if (randomArray[currentQuestion].answer === optionChosen) {
+      answers[currentQuestion] = 1;
+    } else {
+      answers[currentQuestion] = 0;
     }
+    setAnswers(answers);
+    setScore(Object.values(answers).reduce((al, el) => al + el));
     setGameState("finished");
   };
-
   return (
     <div className="Quiz">
-      <h1>{Questions[currentQuestion].prompt}</h1>
-      <div className="questions">
+      <h1>{randomArray[currentQuestion].prompt}</h1>
+      <div className="randomArray">
         <button
           onClick={() => {
             chooseOption("optionA");
           }}
         >
-          {Questions[currentQuestion].optionA}
+          {randomArray[currentQuestion].optionA}
         </button>
         <button
           onClick={() => {
             chooseOption("optionB");
           }}
         >
-          {Questions[currentQuestion].optionB}
+          {randomArray[currentQuestion].optionB}
         </button>
         <button
           onClick={() => {
             chooseOption("optionC");
           }}
         >
-          {Questions[currentQuestion].optionC}
+          {randomArray[currentQuestion].optionC}
         </button>
         <button
           onClick={() => {
             chooseOption("optionD");
           }}
         >
-          {Questions[currentQuestion].optionD}
+          {randomArray[currentQuestion].optionD}
         </button>
       </div>
-      {currentQuestion === Questions.length - 1 ? (
-        <button onClick={finishQuiz} id="nextQuestion">
+      {currentQuestion === randomArray.length - 1 ? (
+        <button
+          onClick={finishQuiz}
+          id="nextQuestion"
+          disabled={optionChosen === ""}
+        >
           Finish Quiz
         </button>
       ) : (
-        <button onClick={nextQuestion} id="nextQuestion">
+        <button
+          onClick={nextQuestion}
+          id="nextQuestion"
+          disabled={optionChosen === ""}
+        >
           Next Question
         </button>
       )}
-      {currentQuestion !== 0 && currentQuestion !== Questions.length ? (
+      {currentQuestion !== 0 && currentQuestion !== randomArray.length ? (
         <button onClick={prevQuestion} id="prevQuestion">
           Previous Question
         </button>

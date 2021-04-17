@@ -4,11 +4,13 @@ import Quiz from "./components/Quiz";
 import EndScreen from "./components/EndScreen";
 import { useState } from "react";
 import { GameStateContext } from "./helpers/Contexts";
+import { Shuffle } from "./components/Shuffle";
+import { Questions } from "./helpers/Questions";
 // ['menu', 'playing', 'finished']
 const App = () => {
   const [gameState, setGameState] = useState("menu");
   const [score, setScore] = useState(0);
-
+  const [randomArray, setRandomArray] = useState(Shuffle(Questions));
   return (
     <div className="App">
       <h1>Quiz App</h1>
@@ -18,6 +20,8 @@ const App = () => {
           setGameState,
           score,
           setScore,
+          randomArray,
+          setRandomArray,
         }}
       >
         {gameState === "menu" && <Menu />}
