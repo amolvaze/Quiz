@@ -42,6 +42,7 @@ const Quiz = () => {
     setScore(Object.values(answers).reduce((al, el) => al + el));
     setGameState("finished");
   };
+
   return (
     <div className="Quiz">
       <h1>{randomArray[currentQuestion].prompt}</h1>
