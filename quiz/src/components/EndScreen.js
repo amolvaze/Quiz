@@ -8,8 +8,12 @@ import { Shuffle } from "./Shuffle";
 const EndScreen = () => {
   const [displaymsg, setdisplayMsg] = useState(true);
   useEffect(() => {
-    setTimeout(() => setdisplayMsg(false), 5000);
+    let msg = setTimeout(() => setdisplayMsg(false), 5000);
+    return () => {
+      clearTimeout(msg);
+    };
   }, []);
+
   const {
     score,
     setScore,
