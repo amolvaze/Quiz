@@ -33,6 +33,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .Menu input, button {
@@ -59,6 +60,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .Menu, .Quiz, .EndScreen h1 {
@@ -74,6 +76,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #nextQuestion, #prevQuestion {
