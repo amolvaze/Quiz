@@ -85,6 +85,10 @@ h3 {
 
 }
 
-#msg { 
-  color: white;
+#msgWon { 
+  color: green;
+}
+
+#msgLose { 
+  color: red;
 }

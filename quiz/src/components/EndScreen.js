@@ -35,10 +35,10 @@ const EndScreen = () => {
         {score} / {Questions.length}
       </h1>
       {displaymsg === true && score === Questions.length ? (
-        <h1 id="msg">Congrats! You Won.</h1>
+        <h1 id="msgWon">Congrats! You Won.</h1>
       ) : null}
       {displaymsg === true && score !== Questions.length ? (
-        <h1 id="msg"> Oops! Try Again. </h1>
+        <h1 id="msgLose"> Oops! Try Again. </h1>
       ) : null}
       <button onClick={restartQuiz}>Restart Quiz</button>
     </div>
